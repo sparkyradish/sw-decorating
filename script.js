@@ -1,7 +1,3 @@
-// Replace with the decorator's real address before publishing, e.g. 'hello@example.co.uk'.
-// If left blank, the website prepares an email without a preset recipient.
-const CONTACT_EMAIL = '';
-
 const menuToggle = document.getElementById('menuToggle');
 const nav = document.getElementById('mainNav');
 menuToggle.addEventListener('click', () => {
@@ -18,12 +14,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 document.getElementById('quoteForm').addEventListener('submit', event => {
   event.preventDefault();
-  const values = Object.fromEntries(new FormData(event.currentTarget).entries());
-  const subject = `Decorating quote enquiry from ${values.name} (${values.location})`;
-  const body = `Hello,\n\nI'd like a quotation for some decorating work.\n\nName: ${values.name}\nPhone: ${values.phone}\nEmail: ${values.email}\nLocation: ${values.location}\nService: ${values.service}\n\nProject details:\n${values.message}\n\nKind regards,\n${values.name}`;
-  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  document.getElementById('formStatus').textContent = CONTACT_EMAIL
-    ? 'Your email app should open with the enquiry ready for you to send. No details have been submitted by the website.'
-    : 'Demo mode: add the business email in script.js to address enquiries automatically. Your email app will open with the message ready to send.';
-  window.location.href = mailto;
+  const v = Object.fromEntries(new FormData(event.currentTarget).entries());
+  const message = `Hi Steve, I'd like a decorating quote.\n\nName: ${v.name}\nPhone: ${v.phone}\nEmail: ${v.email}\nLocation: ${v.location}\nService: ${v.service}\n\nProject details:\n${v.message}`;
+  const url = `https://wa.me/447860640722?text=${encodeURIComponent(message)}`;
+  document.getElementById('formStatus').textContent = 'WhatsApp will open with your enquiry ready to send. Please press Send in WhatsApp to contact Steve.';
+  window.location.href = url;
 });
