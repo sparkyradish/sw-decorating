@@ -3,8 +3,8 @@
 Static website for **SW Decorating** in Warwickshire.
 
 - Domain: https://www.sw-decorating.co.uk
-- Phone: 07860 640722 / +44 7860 640722
-- WhatsApp: https://wa.me/447860640722
+- Phone: 07870 640722 / +44 7870 640722
+- WhatsApp: https://wa.me/447870640722
 
 ## GitHub Pages upload
 1. Unzip this archive.
